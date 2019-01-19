@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image, Menu } from 'semantic-ui-react'
+import { Card, Image, Menu, Comment } from 'semantic-ui-react'
 import moment from 'moment'
 
 const formatDate = date => {
@@ -15,15 +15,27 @@ const formatDate = date => {
   return str.toUpperCase()
 }
 
-const Post = ({ url, owner_email, ts }) => {
+const Post = ({ url, owner_email, ts, caption }) => {
   return (
     <Card>
-      <Image src={url} />
       <Card.Content>
         <Card.Header>{owner_email}</Card.Header>
       </Card.Content>
+      <Image src={url} />
+      <Card.Content>
+        <Card.Description>
+          <Comment.Group size="small">
+            <Comment>
+              <Comment.Content>
+                <Comment.Author>{owner_email}</Comment.Author>
+                <Comment.Text>{caption}</Comment.Text>
+              </Comment.Content>
+            </Comment>
+          </Comment.Group>
+        </Card.Description>
+      </Card.Content>
       <Card.Content extra>
-        <Menu secondary size="tiny">
+        <Menu secondary size="mini">
           <Menu.Item fitted>
             <span title={moment(ts).format('dddd, MMMM Do YYYY, h:mm a')}>
               {formatDate(ts)}

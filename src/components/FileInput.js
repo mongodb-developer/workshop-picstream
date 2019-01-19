@@ -29,10 +29,10 @@ class FileInput extends Component {
             icon: 'cloud upload',
             content: 'Upload',
             role: 'submit',
-            size: 'small'
+            size: 'mini'
           }}
           ref={this.fileInput}
-          size="small"
+          size="mini"
         />
       </form>
     )

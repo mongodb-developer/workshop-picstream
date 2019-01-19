@@ -17,6 +17,10 @@ import Feed from './components/Feed'
 
 import SampleData from './sample_data'
 
+const pacificoFont = {
+  fontFamily: "'Pacifico', cursive"
+}
+
 const convertImageToBSONBinaryObject = file => {
   return new Promise(resolve => {
     var fileReader = new FileReader()
@@ -97,16 +101,18 @@ class App extends Component {
     const { isAuthed, email, entries } = this.state
     return (
       <Container>
-        <Header as="h2" icon textAlign="center">
-          <Icon name="camera retro" circular />
-          <Header.Content>PicStream</Header.Content>
-          <Header.Subheader>
-            Built using MongoDB Stitch and AWS S3
-          </Header.Subheader>
+        <Header as="h1" textAlign="center">
+          <Header.Content>
+            <Icon name="camera retro" />{' '}
+            <span style={pacificoFont}>PicStream</span>
+            <Header.Subheader>
+              Built using MongoDB Stitch and AWS S3
+            </Header.Subheader>
+          </Header.Content>
         </Header>
         {isAuthed ? (
           <Container>
-            <Menu stackable>
+            <Menu size="small" stackable>
               <Menu.Item>Welcome, {email}</Menu.Item>
               <Menu.Item>
                 <FileInput handleFileUpload={this.handleFileUpload} />

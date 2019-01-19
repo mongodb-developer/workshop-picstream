@@ -100,7 +100,7 @@ class App extends Component {
   render() {
     const { isAuthed, email, entries } = this.state
     return (
-      <Container>
+      <Container style={{ marginTop: '1em' }}>
         <Header as="h1" textAlign="center">
           <Header.Content>
             <Icon name="camera retro" />{' '}

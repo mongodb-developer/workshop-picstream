@@ -12,8 +12,8 @@ import {
 import BSON from 'bson'
 
 import Login from './components/Login'
-import FileInput from './components/FileInput'
 import Feed from './components/Feed'
+import UploadModal from './components/UploadModal'
 
 import SampleData from './sample_data'
 
@@ -83,7 +83,7 @@ class App extends Component {
     })
   }
 
-  handleFileUpload = async file => {
+  handleFileUpload = async (file, caption) => {
     if (!file) {
       return
     }
@@ -94,6 +94,7 @@ class App extends Component {
 
     const bsonFile = await convertImageToBSONBinaryObject(file)
     console.log(`Upload ${file.name} to AWS S3.`)
+    console.log(`Caption: ${caption}`)
     console.log(`BSON Binary Object File: ${bsonFile}`)
   }
 
@@ -112,17 +113,15 @@ class App extends Component {
         </Header>
         {isAuthed ? (
           <Container>
-            <Menu size="small" stackable>
-              <Menu.Item>Welcome, {email}</Menu.Item>
+            <Menu borderless size="small" stackable>
+              <Menu.Item header>Welcome, {email}</Menu.Item>
               <Menu.Item>
-                <FileInput handleFileUpload={this.handleFileUpload} />
+                <UploadModal handleFileUpload={this.handleFileUpload} />
               </Menu.Item>
               <Menu.Item
                 position="right"
                 content="Logout"
-                onClick={() => {
-                  this.logout()
-                }}
+                onClick={this.logout}
               />
             </Menu>
             {entries.length > 0 ? (

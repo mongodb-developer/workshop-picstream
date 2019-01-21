@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
-import { Header, Icon, Container, Menu, Message } from 'semantic-ui-react'
+import {
+  Header,
+  Icon,
+  Container,
+  Menu,
+  Message,
+  Button
+} from 'semantic-ui-react'
 /*import {
   Stitch,
   UserPasswordCredential,
@@ -19,6 +26,14 @@ import SampleData from './sample_data'
 
 const pacificoFont = {
   fontFamily: "'Pacifico', cursive"
+}
+
+const githubButtonStyle = {
+  position: 'fixed',
+  margin: '1em',
+  top: 0,
+  right: 0,
+  zIndex: 6
 }
 
 const convertImageToBSONBinaryObject = file => {
@@ -133,6 +148,16 @@ class App extends Component {
         ) : (
           <Login loginUser={this.login} />
         )}
+        <div style={githubButtonStyle}>
+          <Button
+            as="a"
+            href={`https://github.com/aydrian/workshop-picstream/`}
+            icon="github"
+            content="Source"
+            secondary
+            target="_blank"
+          />
+        </div>
       </Container>
     )
   }

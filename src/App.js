@@ -7,7 +7,7 @@ import {
   Message,
   Button
 } from 'semantic-ui-react'
-/*import {
+import {
   Stitch,
   UserPasswordCredential,
   RemoteMongoClient
@@ -15,14 +15,12 @@ import {
 import {
   AwsServiceClient,
   AwsRequest
-} from 'mongodb-stitch-browser-services-aws'*/
+} from 'mongodb-stitch-browser-services-aws'
 import BSON from 'bson'
 
 import Login from './components/Login'
 import Feed from './components/Feed'
 import UploadModal from './components/UploadModal'
-
-import SampleData from './sample_data'
 
 const pacificoFont = {
   fontFamily: "'Pacifico', cursive"
@@ -51,8 +49,7 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    // Paste your Stitch App ID from the Stitch Admin Console here.
-    this.appId = ''
+    this.appId = 'picstream-pzepw'
 
     this.state = {
       isAuthed: false,
@@ -61,41 +58,50 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    // This is where we will initialize our Stitch Client
-    /*this.client = Stitch.initializeAppClient(this.appId)
+  componentDidMount = async () => {
+    this.client = Stitch.initializeAppClient(this.appId)
     this.mongodb = this.client.getServiceClient(
       RemoteMongoClient.factory,
       'mongodb-atlas'
     )
-    this.aws = this.client.getServiceClient(AwsServiceClient.factory, 'AWS')*/
-    /*const isAuthed = false //this.client.auth.isLoggedIn
+    this.aws = this.client.getServiceClient(AwsServiceClient.factory, 'aws')
+
+    const isAuthed = this.client.auth.isLoggedIn
     if (isAuthed) {
-      this.setState({ isAuthed })
-      this.getEntries()
-    }*/
+      const email = this.client.auth.user.profile.email
+      const entries = await this.getEntries()
+      this.setState({ isAuthed, email, entries })
+    }
   }
 
   login = async (email, password) => {
+    const { isAuthed } = this.state
+
+    if (isAuthed) {
+      return
+    }
+
+    const credential = new UserPasswordCredential(email, password)
+    const user = await this.client.auth.loginWithCredential(credential)
     const entries = await this.getEntries()
     this.setState({
       isAuthed: true,
-      email,
+      email: user.profile.email,
       entries
     })
   }
 
   logout = async () => {
+    this.client.auth.logout()
     this.setState({ isAuthed: false, email: '', entries: [] })
   }
 
   getEntries = async () => {
-    // Using Sample Data from sample_data.json
-    // Replace the following with a MongoDB Query to grab all entries,
-    // sorted by ts descending. This function should return a Promise.
-    return new Promise(resolve => {
-      resolve(SampleData)
-    })
+    return this.mongodb
+      .db('data')
+      .collection('stream')
+      .find({}, { sort: { ts: -1 } })
+      .asArray()
   }
 
   handleFileUpload = async (file, caption) => {
@@ -103,14 +109,51 @@ class App extends Component {
       return
     }
 
-    //const key = `${this.client.auth.user.id}-${file.name}`
-    //const bucket = '<YOUR AWS S3 BUCKET ID>'
-    //const url = `http://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
+    const key = `${this.client.auth.user.id}-${file.name}`
+    const bucket = 'workshop-picstream'
+    const url = `http://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
 
     const bsonFile = await convertImageToBSONBinaryObject(file)
-    console.log(`Upload ${file.name} to AWS S3.`)
-    console.log(`Caption: ${caption}`)
-    console.log(`BSON Binary Object File: ${bsonFile}`)
+
+    // AWS S3 Request
+    const args = {
+      ACL: 'public-read',
+      Bucket: bucket,
+      ContentType: file.type,
+      Key: key,
+      Body: bsonFile
+    }
+
+    const request = new AwsRequest.Builder()
+      .withService('s3')
+      .withAction('PutObject')
+      .withRegion('us-east-1')
+      .withArgs(args)
+      .build()
+
+    const s3Result = await this.aws.execute(request)
+
+    // MongoDB Collection Insert
+    const collection = this.mongodb.db('data').collection('stream')
+    await collection.insertOne({
+      owner_id: this.client.auth.user.id,
+      owner_email: this.client.auth.user.profile.email,
+      url,
+      file: {
+        name: file.name,
+        type: file.type
+      },
+      s3: {
+        bucket,
+        key,
+        ETag: s3Result.ETag
+      },
+      caption: caption,
+      ts: new Date()
+    })
+
+    const entries = await this.getEntries()
+    this.setState({ entries })
   }
 
   render() {

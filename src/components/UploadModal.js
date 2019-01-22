@@ -6,7 +6,10 @@ import {
   Icon,
   Button,
   Item,
-  TextArea
+  TextArea,
+  Dimmer,
+  Loader,
+  Message
 } from 'semantic-ui-react'
 
 class UploadModal extends Component {
@@ -19,15 +22,24 @@ class UploadModal extends Component {
     this.state = {
       open: false,
       file: null,
-      caption: ''
+      caption: '',
+      loading: false,
+      errorMessage: ''
     }
   }
 
   handleSubmit = event => {
     event.preventDefault()
     const { file, caption } = this.state
+    this.setState({ loading: true })
     this.handleFileUpload(file, caption)
-    this.handleModelClose()
+      .then(() => {
+        this.handleModalClose()
+      })
+      .catch(err => {
+        console.err(err)
+        this.setState({ loading: false, errorMessage: err.message })
+      })
   }
 
   handleFileChange = event => {
@@ -49,11 +61,17 @@ class UploadModal extends Component {
     this.setState({ file: null, caption: '' })
   }
 
-  handleModelClose = () =>
-    this.setState({ open: false, file: null, caption: '' })
+  handleModalClose = () =>
+    this.setState({
+      open: false,
+      file: null,
+      caption: '',
+      loading: false,
+      errorMessage: ''
+    })
 
   render() {
-    const { file, caption } = this.state
+    const { file, caption, open, loading, errorMessage } = this.state
     const trigger = (
       <Button
         animated="vertical"
@@ -69,15 +87,25 @@ class UploadModal extends Component {
 
     return (
       <Modal
+        centered={false}
         trigger={trigger}
-        onClose={this.handleModelClose}
-        open={this.state.open}
+        onClose={this.handleModalClose}
+        open={open}
         size="tiny"
       >
         <Modal.Header>
           <Icon name="cloud upload" /> Share a Photo
         </Modal.Header>
         <Modal.Content>
+          <Dimmer active={loading} inverted>
+            <Loader inverted>Uploading</Loader>
+          </Dimmer>
+          <Message
+            hidden={!errorMessage}
+            negative
+            header="Error"
+            content={errorMessage}
+          />
           <Form onSubmit={this.handleSubmit}>
             {file ? (
               <Item.Group>

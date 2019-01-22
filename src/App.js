@@ -111,7 +111,7 @@ class App extends Component {
 
     const key = `${this.client.auth.user.id}-${file.name}`
     const bucket = 'workshop-picstream'
-    const url = `http://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
+    const url = `https://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
 
     const bsonFile = await convertImageToBSONBinaryObject(file)
 

@@ -109,6 +109,17 @@ class App extends Component {
       return
     }
 
+    const saveFileResult = await this.saveFile(file)
+
+    const saveEntryResult = await this.saveEntry(caption, saveFileResult)
+
+    const entries = await this.getEntries()
+    this.setState({ entries })
+
+    return saveEntryResult
+  }
+
+  saveFile = async file => {
     const key = `${this.client.auth.user.id}-${file.name}`
     const bucket = 'workshop-picstream'
     const url = `https://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
@@ -133,11 +144,7 @@ class App extends Component {
 
     const s3Result = await this.aws.execute(request)
 
-    // MongoDB Collection Insert
-    const collection = this.mongodb.db('data').collection('stream')
-    await collection.insertOne({
-      owner_id: this.client.auth.user.id,
-      owner_email: this.client.auth.user.profile.email,
+    return {
       url,
       file: {
         name: file.name,
@@ -147,13 +154,20 @@ class App extends Component {
         bucket,
         key,
         ETag: s3Result.ETag
-      },
-      caption: caption,
+      }
+    }
+  }
+
+  saveEntry = async (caption, s3Data) => {
+    // MongoDB Collection Insert
+    const collection = this.mongodb.db('data').collection('stream')
+    return collection.insertOne({
+      owner_id: this.client.auth.user.id,
+      owner_email: this.client.auth.user.profile.email,
+      ...s3Data,
+      caption,
       ts: new Date()
     })
-
-    const entries = await this.getEntries()
-    this.setState({ entries })
   }
 
   render() {

@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![PicStream | Built using MongoDB Stitch and AWS S3](./resources/picstream_logo.png)
 
-## Available Scripts
+Learn the basics of [MongoDB Stitch](https://www.mongodb.com/cloud/stitch), the serverless platform from MongoDB. You'll add MongoDB Stitch an Instagram-like React.js application using [MongoDB Atlas][1] and [AWS S3](https://aws.amazon.com/s3/).
 
-In the project directory, you can run:
+This workshop will cover the following topics:
 
-### `npm start`
+- QueryAnywhere
+- Database Rules
+- Email/Password Authentication
+- Storing Images in AWS S3
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Things You'll Need Before You Start
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Node.js
 
-### `npm test`
+You will need to have Node.js installed on your machine.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Check if you have Node installed by typing `node --version` in your terminal. If you get an error, ddownload it from If you get an error, download it here: https://nodejs.org/en/download/ or install it via a package manager. If you're on a Mac and have [Homebrew](https://brew.sh/) installed. You can run `brew install node` from your terminal.
 
-### `npm run build`
+### Git
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You will need to have Git installed as well. One quick way to do this is to install GitHub Desktop.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Check if you have Git installed by typing `git --version` in your terminal. If you get an error, download it here: https://desktop.github.com/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### GitHub Account
 
-### `npm run eject`
+https://github.com/join
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Sign up for a GitHub account. If you want to clone the code locally and push changes, you'll
+need to [generate](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) an SSH key
+and [upload](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) it to GitHub.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### MongoDB Atlas
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You'll be storing and accessing data from a [MongoDB Atlas][1] M0 Cluster. This is also how you will configure your Stitch server-side app. If you already have a MongoDB Cloud account, you can use it. Otherwise, you'll walk through creating one in the first exercise.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Set Up The Project
 
-## Learn More
+You may choose to complete this in a pair or team. One person on the team should fork the repo (see below). Everyone else on the team can clone that copy to their machines and follow the setup steps below.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Fork this repo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You won't be able to make changes to this repo, so you will need to fork it (make a copy of it). Click the "Fork" button in the upper right hand corner of this repo. This will give you your own copy of this repo to work with in your GitHub account.
 
-### Code Splitting
+If you are working in a pair or team, only one person needs to fork it. Add everyone on your team as a "collaborator". You can do that at `https://github.com/<GHUsername>/workshop-picstream/settings/collaboration`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Clone Your Forked Version
 
-### Analyzing the Bundle Size
+Make a local copy of your version using the `git clone` command. Use the "Clone or Download" button to get the URL to your copy of the project.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Type `cd workshop-picstream` to change your working directory into your copy of the repo.
 
-### Making a Progressive Web App
+### Install Depedencies
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Use `npm install` in the root of your project to install all the project dependencies.
 
-### Advanced Configuration
+### Start the App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+This project uses [Create React App](./CRA-README.md) to run a development server and build a production app.
 
-### Deployment
+Type `npm start` in a terminal window to start the local server and launch a browser window to http://localhost:3000. The application functionality has been mocked, so you can log in using any email/password combination and click around. You'll be slowly replacing the mocks with MongoDB Stitch.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## First Exercise
 
-### `npm run build` fails to minify
+Once you have the application running and have clicked around a bit, let's get started with the [First Exercise](./resources/workshop/exercise_01.md).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[1]: https://www.mongodb.com/cloud/atlas

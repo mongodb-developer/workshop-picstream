@@ -51,7 +51,7 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    // Paste your Stitch App ID from the Stitch Admin Console here.
+    // TODO: Paste your Stitch App ID from the Stitch Admin Console here.
     this.appId = ''
 
     this.state = {
@@ -62,6 +62,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // TODO:
     // This is where we will initialize our Stitch Client
     /*this.client = Stitch.initializeAppClient(this.appId)
     this.mongodb = this.client.getServiceClient(
@@ -74,9 +75,17 @@ class App extends Component {
       this.setState({ isAuthed })
       this.getEntries()
     }*/
+    this.client = {
+      auth: {
+        user: {
+          id: '12345'
+        }
+      }
+    }
   }
 
   login = async (email, password) => {
+    // TODO:
     const entries = await this.getEntries()
     this.setState({
       isAuthed: true,
@@ -86,12 +95,12 @@ class App extends Component {
   }
 
   logout = async () => {
+    // TODO:
     this.setState({ isAuthed: false, email: '', entries: [] })
   }
 
   getEntries = async () => {
-    // Using Sample Data from sample_data.json
-    // Replace the following with a MongoDB Query to grab all entries,
+    // TODO: Replace the following with a MongoDB Query to grab all entries,
     // sorted by ts descending. This function should return a Promise.
     return new Promise(resolve => {
       resolve(SampleData)
@@ -103,14 +112,47 @@ class App extends Component {
       return
     }
 
-    //const key = `${this.client.auth.user.id}-${file.name}`
-    //const bucket = '<YOUR AWS S3 BUCKET ID>'
-    //const url = `http://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
+    const saveFileResult = await this.saveFile(file)
 
-    const bsonFile = await convertImageToBSONBinaryObject(file)
-    console.log(`Upload ${file.name} to AWS S3.`)
-    console.log(`Caption: ${caption}`)
-    console.log(`BSON Binary Object File: ${bsonFile}`)
+    const saveEntryResult = await this.saveEntry(caption, saveFileResult)
+
+    const entries = await this.getEntries()
+    this.setState({ entries })
+
+    return saveEntryResult
+  }
+
+  saveFile = async file => {
+    // TODO:
+    const key = `${this.client.auth.user.id}-${file.name}`
+    const bucket = 'workshop-picstream'
+    const url = `https://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
+
+    //const bsonFile = await convertImageToBSONBinaryObject(file)
+
+    const s3Result = { ETag: '12345' }
+
+    return {
+      url,
+      file: {
+        name: file.name,
+        type: file.type
+      },
+      s3: {
+        bucket,
+        key,
+        ETag: s3Result.ETag
+      }
+    }
+  }
+
+  saveEntry = async (caption, s3Data) => {
+    // TODO:
+    return new Promise(resolve => {
+      resolve({
+        insertedId: '12345'
+      })
+    })
   }
 
   render() {

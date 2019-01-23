@@ -50,7 +50,7 @@ const convertImageToBSONBinaryObject = file => {
 class App extends Component {
   constructor(props) {
     super(props)
-
+    // Exercise 2
     // TODO: Paste your Stitch App ID from the Stitch Admin Console here.
     this.appId = ''
 
@@ -62,30 +62,54 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // TODO:
-    // This is where we will initialize our Stitch Client
-    /*this.client = Stitch.initializeAppClient(this.appId)
-    this.mongodb = this.client.getServiceClient(
+    // Exercise 2
+    // TODO: Initialize the Stitch App Client
+
+    // Exercise 4
+    // TODO: Initialize the RemoteMongoClient
+    /*this.mongodb = this.client.getServiceClient(
       RemoteMongoClient.factory,
       'mongodb-atlas'
-    )
-    this.aws = this.client.getServiceClient(AwsServiceClient.factory, 'AWS')*/
-    /*const isAuthed = false //this.client.auth.isLoggedIn
+    )*/
+
+    // Exercise 3
+    // TODO: Initialize the AWS Service Client
+    //this.aws = this.client.getServiceClient(AwsServiceClient.factory, 'AWS')*/
+
+    // Exercise 2
+    // TODO: Change the following line to check if
+    // client is already logged in.
+    const isAuthed = false //this.client.auth.isLoggedIn
     if (isAuthed) {
-      this.setState({ isAuthed })
-      this.getEntries()
-    }*/
+      const email = this.client.auth.user.profile.email
+      const entries = await this.getEntries()
+      this.setState({ isAuthed, email, entries })
+    }
+
+    // MOCK START
+    // TODO: Remove this as part of Exercise 2
     this.client = {
       auth: {
         user: {
-          id: '12345'
+          id: '12345',
+          profile: {
+            email: ''
+          }
         }
       }
     }
+    // MOCK END
   }
 
   login = async (email, password) => {
-    // TODO:
+    const { isAuthed } = this.state
+
+    if (isAuthed) {
+      return
+    }
+    // Exercise 2
+    // TODO: Use the client to log in
+
     const entries = await this.getEntries()
     this.setState({
       isAuthed: true,
@@ -95,11 +119,14 @@ class App extends Component {
   }
 
   logout = async () => {
-    // TODO:
+    // Exercise 2
+    // TODO: Use the client to log out
+
     this.setState({ isAuthed: false, email: '', entries: [] })
   }
 
   getEntries = async () => {
+    // Exercise 4
     // TODO: Replace the following with a MongoDB Query to grab all entries,
     // sorted by ts descending. This function should return a Promise.
     return new Promise(resolve => {
@@ -123,13 +150,15 @@ class App extends Component {
   }
 
   saveFile = async file => {
-    // TODO:
     const key = `${this.client.auth.user.id}-${file.name}`
     const bucket = 'workshop-picstream'
     const url = `https://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
 
-    //const bsonFile = await convertImageToBSONBinaryObject(file)
+    const bsonFile = await convertImageToBSONBinaryObject(file)
 
+    // Exercise 3
+    // TODO: Replace with a function to execute an AWS S3 Request
+    // You will need to setup the args and build the request.
     const s3Result = { ETag: '12345' }
 
     return {
@@ -147,7 +176,9 @@ class App extends Component {
   }
 
   saveEntry = async (caption, s3Data) => {
-    // TODO:
+    // Exercise 4
+    // TODO: Replace with a MongoDB query to insert data into
+    // the stream collection. The function should return a Promise.
     return new Promise(resolve => {
       resolve({
         insertedId: '12345'

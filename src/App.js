@@ -74,7 +74,6 @@ class App extends Component {
 
     // Exercise 3
     // TODO: Initialize the AWS Service Client
-    //this.aws = this.client.getServiceClient(AwsServiceClient.factory, 'AWS')*/
 
     // Exercise 2
     // TODO: Change the following line to check if
@@ -151,9 +150,12 @@ class App extends Component {
 
   saveFile = async file => {
     const key = `${this.client.auth.user.id}-${file.name}`
-    const bucket = 'workshop-picstream'
+    // Exercise 3
+    // TODO: Replace the value of bucket with the name of your S3 bucket
+    const bucket = 'your-bucket-name'
     const url = `https://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
 
+    // The following BSON Binary Object can be used a the body of the request.
     const bsonFile = await convertImageToBSONBinaryObject(file)
 
     // Exercise 3

@@ -35,6 +35,10 @@ and [upload](https://help.github.com/articles/adding-a-new-ssh-key-to-your-githu
 
 You'll be storing and accessing data from a [MongoDB Atlas][1] M0 Cluster. This is also how you will configure your Stitch server-side app. If you already have a MongoDB Cloud account, you can use it. Otherwise, you'll walk through creating one in the first exercise.
 
+### AWS Account
+
+You'll be using AWS S3 to store uploaded files. If you don't already have an AWS Account, you can create one at https://aws.amazon.com/.
+
 ## Set Up The Project
 
 You may choose to complete this in a pair or team. One person on the team should fork the repo (see below). Everyone else on the team can clone that copy to their machines and follow the setup steps below.

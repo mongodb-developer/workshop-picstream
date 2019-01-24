@@ -3,7 +3,7 @@
     "_id": "5c3cd3eb64c8fd7eeecc9689",
     "owner_email": "person1@mdb.com",
     "owner_id": "5b9ad85e698a67ee3e8afb58",
-    "caption": "Oliver",
+    "caption": "Oliver is living The Pug Life",
     "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Oliver.jpg",
     "file": { "name": "Oliver.jpg", "type": "image/jpeg" },
     "s3": {
@@ -17,7 +17,7 @@
     "_id": "5c3cd3e464c8fd7eeecc9688",
     "owner_email": "person2@mdb.com",
     "owner_id": "5c3cb736ce46150f03865a63",
-    "caption": "Buckley",
+    "caption": "Buckley is such a good boy.",
     "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Buckley.jpg",
     "file": { "name": "Buckley.jpg", "type": "image/jpeg" },
     "s3": {
@@ -31,7 +31,7 @@
     "_id": "5c3cd3de64c8fd7eeecc9687",
     "owner_email": "person3@mdb.com",
     "owner_id": "5b9d81068c5febe2164297b6",
-    "caption": "Ember",
+    "caption": "Ember is always very vigilant.",
     "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Ember.jpg",
     "file": { "name": "Ember.jpg", "type": "image/jpeg" },
     "s3": {
@@ -45,7 +45,7 @@
     "_id": "5c3cd3d064c8fd7eeecc9686",
     "owner_email": "person1@mdb.com",
     "owner_id": "5b9ad85e698a67ee3e8afb58",
-    "caption": "Weasley",
+    "caption": "Weasley will put a spell on you... or try very hard.",
     "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Weasley.jpg",
     "file": { "name": "Weasley.jpg", "type": "image/jpeg" },
     "s3": {
@@ -59,7 +59,7 @@
     "_id": "5c3cd3b564c8fd7eeecc9685",
     "owner_email": "person2@mdb.com",
     "owner_id": "5c111cfc17639e7c558a7532",
-    "caption": "JoJo",
+    "caption": "JoJo loves coming to hackathons.",
     "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-JoJo.jpg",
     "file": { "name": "JoJo.jpg", "type": "image/jpeg" },
     "s3": {
@@ -73,12 +73,12 @@
     "_id": "5c3cd37a7c3fe152d3b0224c",
     "owner_email": "person3@mdb.com",
     "owner_id": "5b9d6c67901593efdb781a1e",
-    "caption": "Therapy Dog",
-    "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-therapy_dog.jpg",
-    "file": { "name": "therapy_dog.jpg", "type": "image/jpeg" },
+    "caption": "Lucy is a good girl.",
+    "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Lucy.jpg",
+    "file": { "name": "Lucy.jpg", "type": "image/jpeg" },
     "s3": {
       "bucket": "stitchcraft-picstream",
-      "key": "5b9ad85e698a67ee3e8afb58-therapy_dog.jpg",
+      "key": "5b9ad85e698a67ee3e8afb58-Lucy.jpg",
       "ETag": "\"9f4b6edbd5dc4d538c6e52b64fb87b25\""
     },
     "ts": "2018-12-14T18:22:50.743+00:00"

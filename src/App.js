@@ -67,10 +67,6 @@ class App extends Component {
 
     // Exercise 4
     // TODO: Initialize the RemoteMongoClient
-    /*this.mongodb = this.client.getServiceClient(
-      RemoteMongoClient.factory,
-      'mongodb-atlas'
-    )*/
 
     // Exercise 3
     // TODO: Initialize the AWS Service Client

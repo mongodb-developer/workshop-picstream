@@ -61,7 +61,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     // Exercise 2
     // TODO: Initialize the Stitch App Client
 
@@ -79,7 +79,7 @@ class App extends Component {
     // Exercise 2
     // TODO: Change the following line to check if
     // client is already logged in.
-    const isAuthed = false //this.client.auth.isLoggedIn
+    const isAuthed = false
     if (isAuthed) {
       const email = this.client.auth.user.profile.email
       const entries = await this.getEntries()

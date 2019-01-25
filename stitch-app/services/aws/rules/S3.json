@@ -1,0 +1,16 @@
+{
+    "name": "S3",
+    "actions": [
+        "s3:PutObject"
+    ],
+    "when": {
+        "%%args.Bucket": "workshop-picstream",
+        "%%args.ContentType": {
+            "%in": [
+                "image/gif",
+                "image/jpeg",
+                "image/png"
+            ]
+        }
+    }
+}

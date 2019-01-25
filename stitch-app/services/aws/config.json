@@ -1,0 +1,8 @@
+{
+    "name": "aws",
+    "type": "aws",
+    "config": {
+        "accessKeyId": "AKIAIAY3TUOMV4W3WG3A"
+    },
+    "version": 1
+}

@@ -9,7 +9,7 @@ This workshop will cover the following topics:
 - Email/Password Authentication
 - Storing Images in AWS S3
 
-## Solution
+# Solution
 
 This is the `solution` branch for the workshop. To start the workshop, check out the `master` branch.
 
@@ -37,11 +37,6 @@ export STITCH_APPID=<APPID>
 
 ```
 {
-  "auth_providers": {
-    "oauth2-google": {
-      "clientSecret": "<client-secret>"
-    }
-  },
   "services": {
     "AWS": {
       "secretAccessKey": "<secret-access-key>",

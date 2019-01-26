@@ -57,7 +57,7 @@ this.mongodb = this.client.getServiceClient(
 
 ### Get Entries
 
-Use the reference in the `getEntries()` function to query the stream collection in the data database for all documents sorted descending by timestamp. The function should return a Promise. The [Browser SDK Docs](https://docs.mongodb.com/stitch-sdks/js/4/interfaces/remotemongocollection.html) will be helpful.
+Use the reference in the `getEntries()` function to query the `stream` collection in the `data` database for all documents sorted descending by timestamp. The function should return a Promise. The [Browser SDK Docs](https://docs.mongodb.com/stitch-sdks/js/4/interfaces/remotemongocollection.html) will be helpful.
 
 Remember, we haven't added any pictures yet, so don't be concerned if all those lovely dogs disappear.
 
@@ -65,7 +65,7 @@ If you get stuck, you can find a solution [here](https://github.com/aydrian/work
 
 ### Insert Entry
 
-Let's get our dogs back. Use the same reference in the `saveEntry()` function to insert a document that fits the schema above. Most of it is given to you in the s3Data. You just need to add `caption`, `owner_id` (remember, that one is important for our rules), `owner_email`, and `ts`. This function should also return a Promise.
+Let's get our dogs back. Use the same reference in the `saveEntry()` function to insert a document that fits (the schema)[# Document Schema] above. Most of it is passed in as the parameter `s3Data`. You just need to add `caption`, `owner_id` (remember, that one is important for our rules), `owner_email`, and `ts`. This function should also return a Promise.
 
 You can use `new Date()` to get the current date.
 You can access information about the current users from `this.client.auth.user`. Check out the [Browser SDK Docs](https://docs.mongodb.com/stitch-sdks/js/4/interfaces/stitchauth.html#user) to see what is available.

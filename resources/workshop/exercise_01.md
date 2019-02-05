@@ -6,7 +6,7 @@ In this exercise, we'll walk through seeing up a free M0 Cluster in MongoDB Atla
 
 ### Create a new M0 Cluster
 
-MongoDB Atlas provides are free tier of service. An M0 Cluster is a 3-node replica set running on your choice of cloud providers (AWS, Google Cloud, or Azure) with shared RAM and 512 MB of storage. If you already have a M0 Cluster, you can skip this step.
+MongoDB Atlas provides are free service tier. An M0 Cluster is a 3-node replica set running on your choice of cloud providers (AWS, Google Cloud, or Azure) with shared RAM and 512 MB of storage. If you already have a M0 Cluster, you can skip this step.
 
 Follow sections A & B in the [MongoDB Atlas Getting Started](https://docs.atlas.mongodb.com/getting-started/) to create an Atlas user account and a free tier cluster. For this workshop, we recommend choosing AWS and N. Virginia (us-east-1).
 

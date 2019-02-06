@@ -2,7 +2,7 @@
 
 ## Exercise 3: Upload Images to AWS S3
 
-Now that you can connect to your Stitch App and properly authentication, let's start to build out the functions that make up the `handleUpload()` function used by the `UploadModal` component. In this exercise, we'll store the image file in an S3 Bucket and return an object with details about the file and S3.
+Now that you can connect to your Stitch App and properly authenticated, let's start to build out the functions that make up the `handleUpload()` function used by the `UploadModal` component. In this exercise, we'll store the image file in an S3 Bucket and return an object with details about the file and S3.
 
 ### Add AWS Service in Stitch
 
@@ -44,7 +44,7 @@ Now that you have the AWS Service setup in your Stitch App, let's use it. First 
 In the `componentDidMount()` lifecycle function of the [`App`][1] component, add the following line.
 
 ```javascript
-this.aws = this.client.getServiceClient(AwsServiceClient.factory, 'AWS')
+this.aws = this.client.getServiceClient(AwsServiceClient.factory, 'aws')
 ```
 
 Now let's use this in the `saveFile()` function to upload the `file` argument to S3. An example is available [here](https://docs.mongodb.com/stitch/services/aws/#calling-an-aws-service-from-the-sdks).

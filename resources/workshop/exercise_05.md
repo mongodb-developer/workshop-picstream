@@ -6,7 +6,7 @@ Congratulations! You should now have a fully functioning PicStream application. 
 
 ### Add Photos
 
-Log in to each of the users you created an upload at least one photo. Feel free to use the dog pics provided in the resource folder. Notice that each user can only see the photos they have uploaded.
+Log in to each of the users you created and upload at least one photo. Feel free to use the dog pics provided in the resource folder. Notice that each user can only see the photos they have uploaded.
 
 ### Change the Rule
 

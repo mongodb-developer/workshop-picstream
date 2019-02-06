@@ -121,12 +121,11 @@ class App extends Component {
   }
 
   getEntries = async () => {
-    // Exercise 4
-    // TODO: Replace the following with a MongoDB Query to grab all entries,
-    // sorted by ts descending. This function should return a Promise.
-    return new Promise(resolve => {
-      resolve(SampleData)
-    })
+    return this.mongodb
+      .db('data')
+      .collection('stream')
+      .find({}, { sort: { ts: -1 } })
+      .asArray()
   }
 
   handleFileUpload = async (file, caption) => {

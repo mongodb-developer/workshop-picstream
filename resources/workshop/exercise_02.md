@@ -31,7 +31,7 @@ this.client = Stitch.initializeAppClient(this.appId)
 
 ### Implement Authentication
 
-Now that we have an App Client, we can take care of authentication. We need to handle logging in and out, and check to see if a auth session already exists. All this can be done using `this.client.auth`.
+Now that we have an App Client, we can take care of authentication. We need to handle logging in and out, and check to see if an auth session already exists. All this can be done using `this.client.auth`.
 
 Let's start with login, find the `login()` function in the [`App`][1] component. To log in using Email and Password, add the following to the the function:
 

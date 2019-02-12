@@ -1,6 +1,6 @@
 ![PicStream | Built using MongoDB Stitch and AWS S3](./resources/picstream_logo.png)
 
-Learn the basics of [MongoDB Stitch](https://www.mongodb.com/cloud/stitch), the serverless platform from MongoDB. You'll add MongoDB Stitch an Instagram-like React.js application using [MongoDB Atlas][1] and [AWS S3](https://aws.amazon.com/s3/).
+Learn the basics of [MongoDB Stitch](https://www.mongodb.com/cloud/stitch), the serverless platform from MongoDB. You'll add MongoDB Stitch to an Instagram-like React.js application using [MongoDB Atlas][1] and [AWS S3](https://aws.amazon.com/s3/).
 
 This workshop will cover the following topics:
 
@@ -15,7 +15,7 @@ This workshop will cover the following topics:
 
 You will need to have Node.js installed on your machine.
 
-Check if you have Node installed by typing `node --version` in your terminal. If you get an error, ddownload it from If you get an error, download it here: https://nodejs.org/en/download/ or install it via a package manager. If you're on a Mac and have [Homebrew](https://brew.sh/) installed. You can run `brew install node` from your terminal.
+Check if you have Node installed by typing `node --version` in your terminal. If you get an error, download it from If you get an error, download it here: https://nodejs.org/en/download/ or install it via a package manager. If you're on a Mac and have [Homebrew](https://brew.sh/) installed. You can run `brew install node` from your terminal.
 
 ### Git
 

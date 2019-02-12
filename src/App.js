@@ -7,7 +7,7 @@ import {
   Message,
   Button
 } from 'semantic-ui-react'
-/*import {
+import {
   Stitch,
   UserPasswordCredential,
   RemoteMongoClient
@@ -15,7 +15,7 @@ import {
 import {
   AwsServiceClient,
   AwsRequest
-} from 'mongodb-stitch-browser-services-aws'*/
+} from 'mongodb-stitch-browser-services-aws'
 import BSON from 'bson'
 
 import Login from './components/Login'

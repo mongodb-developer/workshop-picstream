@@ -37,7 +37,7 @@ class UploadModal extends Component {
         this.handleModalClose()
       })
       .catch(err => {
-        console.err(err)
+        console.log(err)
         this.setState({ loading: false, errorMessage: err.message })
       })
   }

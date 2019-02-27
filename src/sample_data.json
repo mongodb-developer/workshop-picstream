@@ -4,7 +4,7 @@
     "owner_email": "person1@mdb.com",
     "owner_id": "5b9ad85e698a67ee3e8afb58",
     "caption": "Oliver is living The Pug Life",
-    "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Oliver.jpg",
+    "url": "https://aydrian.github.io/workshop-picstream/dog-pics/Oliver.jpg",
     "file": { "name": "Oliver.jpg", "type": "image/jpeg" },
     "s3": {
       "bucket": "stitchcraft-picstream",
@@ -18,7 +18,7 @@
     "owner_email": "person2@mdb.com",
     "owner_id": "5c3cb736ce46150f03865a63",
     "caption": "Buckley is such a good boy.",
-    "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Buckley.jpg",
+    "url": "https://aydrian.github.io/workshop-picstream/dog-pics/Buckley.jpg",
     "file": { "name": "Buckley.jpg", "type": "image/jpeg" },
     "s3": {
       "bucket": "stitchcraft-picstream",
@@ -32,7 +32,7 @@
     "owner_email": "person3@mdb.com",
     "owner_id": "5b9d81068c5febe2164297b6",
     "caption": "Ember is always very vigilant.",
-    "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Ember.jpg",
+    "url": "https://aydrian.github.io/workshop-picstream/dog-pics/Ember.jpg",
     "file": { "name": "Ember.jpg", "type": "image/jpeg" },
     "s3": {
       "bucket": "stitchcraft-picstream",
@@ -46,7 +46,7 @@
     "owner_email": "person1@mdb.com",
     "owner_id": "5b9ad85e698a67ee3e8afb58",
     "caption": "Weasley will put a spell on you... or try very hard.",
-    "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Weasley.jpg",
+    "url": "https://aydrian.github.io/workshop-picstream/dog-pics/Weasley.jpg",
     "file": { "name": "Weasley.jpg", "type": "image/jpeg" },
     "s3": {
       "bucket": "stitchcraft-picstream",
@@ -60,7 +60,7 @@
     "owner_email": "person2@mdb.com",
     "owner_id": "5c111cfc17639e7c558a7532",
     "caption": "JoJo loves coming to hackathons.",
-    "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-JoJo.jpg",
+    "url": "https://aydrian.github.io/workshop-picstream/dog-pics/JoJo.jpg",
     "file": { "name": "JoJo.jpg", "type": "image/jpeg" },
     "s3": {
       "bucket": "stitchcraft-picstream",
@@ -74,7 +74,7 @@
     "owner_email": "person3@mdb.com",
     "owner_id": "5b9d6c67901593efdb781a1e",
     "caption": "Lucy is a good girl.",
-    "url": "http://stitchcraft-picstream.s3.amazonaws.com/5b9ad85e698a67ee3e8afb58-Lucy.jpg",
+    "url": "https://aydrian.github.io/workshop-picstream/dog-pics/Lucy.jpg",
     "file": { "name": "Lucy.jpg", "type": "image/jpeg" },
     "s3": {
       "bucket": "stitchcraft-picstream",

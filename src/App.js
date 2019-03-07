@@ -121,7 +121,7 @@ class App extends Component {
 
   saveFile = async file => {
     const key = `${this.client.auth.user.id}-${file.name}`
-    const bucket = 'workshop-picstream'
+    const bucket = 'mdb-picstream-workshop'
     const url = `https://${bucket}.s3.amazonaws.com/${encodeURIComponent(key)}`
 
     const bsonFile = await convertImageToBSONBinaryObject(file)

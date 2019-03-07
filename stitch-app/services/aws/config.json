@@ -2,7 +2,10 @@
     "name": "aws",
     "type": "aws",
     "config": {
-        "accessKeyId": "AKIAIAY3TUOMV4W3WG3A"
+        "accessKeyId": "AKIAIRDHJOEJC2E5IHWA"
+    },
+    "secret_config": {
+        "secretAccessKey": "__aws_secretAccessKey"
     },
     "version": 1
 }

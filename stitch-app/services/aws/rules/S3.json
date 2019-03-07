@@ -4,7 +4,7 @@
         "s3:PutObject"
     ],
     "when": {
-        "%%args.Bucket": "workshop-picstream",
+        "%%args.Bucket": "mdb-picstream-workshop",
         "%%args.ContentType": {
             "%in": [
                 "image/gif",

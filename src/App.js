@@ -208,7 +208,7 @@ class App extends Component {
         <div style={githubButtonStyle}>
           <Button
             as="a"
-            href={`https://github.com/aydrian/workshop-picstream/`}
+            href={`https://github.com/mongodb-developer/workshop-picstream/`}
             icon="github"
             content="Source"
             secondary

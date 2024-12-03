@@ -108,7 +108,7 @@ class App extends Component {
     const entries = await this.getEntries()
     this.setState({
       isAuthed: true,
-      email,
+      user.profile.email,
       entries
     })
   }
